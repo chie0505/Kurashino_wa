@@ -1,0 +1,39 @@
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="form-wrapper">
+  <h1>Sign Up</h1>
+  <form>
+    <div class="form-item">
+ 　  <%= f.label :name %><br />
+    <%= f.text_field :name, autofocus: true %>
+    </div>
+
+    <div class="form-item">
+ 　  <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
+
+    <div class="form-item">
+    <%= f.label :Password %>
+    <% if @minimum_password_length %>
+    <% end %><br />
+    <%= f.password_field :password, autocomplete: "new-password" %>
+    </div>
+
+     <div class="form-item">
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+    </div>
+
+
+
+    <div class="button-panel">
+      <input type="submit" class="button" title="Sign Up" value="Sign Up"></input>
+    </div>
+  </form>
+  <div class="form-footer">
+    <p><a href="/users/sign_in">登録済みの方はこちら</a></p>
+
+  </div>
+</div>
+<% end %>
