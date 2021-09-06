@@ -26,7 +26,14 @@
 
 
 <%= link_to "show", post_path(post.id) %>
-<%= link_to "edit", edit_post_path(post.id) %>
+
+
+
+<% if current_user==post.contributer %>
+      <hr>
+      <%= link_to '投稿を取り消す', post, method: :delete, data:{confirm: "本当に取り消しますか"}, class:"btn btn-danger btn-block" %>
+<% end %>
+
 
 </td>
 </tr>

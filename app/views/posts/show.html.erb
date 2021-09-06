@@ -5,6 +5,7 @@
     <div class="col-md-6 clearfix">
       <div class="img-container-large">
         <%= image_tag @post&.image[:large].url %>
+
       </div>
       <%= link_to "#{@post.contributer.name} :", @post.contributer %>
       <div class="post-content">

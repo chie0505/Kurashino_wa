@@ -19,7 +19,7 @@ before_action :authenticate_user!
     # @post = Post.new(post_params)
     # @post.user_id = current_user.id
     if @post.save
-　　# flash[:success] = "投稿しました"
+
       respond_to do |format|
         format.html { redirect_to root_path }
         format.js { redirect_to root_path }
@@ -46,12 +46,13 @@ before_action :authenticate_user!
 
 
   def destroy
+    @post = Post.find(params[:id])
     @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    flash[:info]="投稿を取り消しました"
+    redirect_to posts_path
   end
+
+
 
   private
     def set_post
@@ -59,8 +60,22 @@ before_action :authenticate_user!
     end
 
     def post_params
-      params.require(:post).permit(:title, :post_image_id, :caption, :user_id,)
+      params.require(:post).permit(:title, :post_image, :caption, :user_id,)
     end
+
+
+
+
+
+    def correct_user
+
+      post=Post.find(params[:id])
+      contributer=post.contributer
+      unless current_user==contributer
+        session[:danger] = "このページにはアクセスできません"
+        redirect_to root_url
+      end
+    end
+
+
 end
-
-

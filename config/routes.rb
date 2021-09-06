@@ -5,6 +5,17 @@ Rails.application.routes.draw do
    get "about" => "homes#about" , as: "about"
 
 
-   resources :users
-   resources :posts
+
+  resources :users do
+    member do
+      get :following, :followers, :like_posts, :posts
+    end
+    get :search, on: :collection
+  end
+  get :signup, to: 'users#new'
+
+
+   resources :posts, only: [:index,:show,:new,:create,:destroy]
+
+
 end
