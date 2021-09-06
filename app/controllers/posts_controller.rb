@@ -4,6 +4,7 @@ before_action :authenticate_user!
 
   def index
     @posts = Post.all
+    @post = Post.new
   end
 
 
@@ -13,17 +14,36 @@ before_action :authenticate_user!
 
 
   def create
-    @post = Post.new(post_params)
-    @post.user_id = current_user.id
-    @post.save
-    redirect_to @post
+    @post=current_user.posts.build(post_params)
+    # =以下2文を含む
+    # @post = Post.new(post_params)
+    # @post.user_id = current_user.id
+    if @post.save
+　　# flash[:success] = "投稿しました"
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js { redirect_to root_path }
+      end
+    else
+        respond_to do |format|
+        format.html { render 'posts/_new' }
+        format.js
+        end
+    end
   end
 
 
-  def show
 
 
-  end
+ def show
+    @post=Post.find(params[:id])
+    respond_to do |format|
+      format.html { render 'posts/_show' }
+      format.js
+    end
+ end
+
+
 
   def destroy
     @post.destroy

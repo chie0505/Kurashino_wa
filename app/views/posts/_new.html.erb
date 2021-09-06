@@ -1,0 +1,24 @@
+
+  <div class="container left-side-content mordal-window">
+    <%= form_with model: @post, local:true do |f| %>
+    
+
+     <%= f.text_field :title %>
+     <%= f.attachment_field :post_image%>
+     
+
+     <%= f.label :image_data %>
+      <br>
+      <%= f.label :caption %>
+      <%= f.text_area :caption, class: 'form-control' %>
+      <%= f.submit "投稿する", class: "btn btn-primary btn-block"%>
+      <button type="button" class="btn btn-default pull-right" data-dismiss="modal">閉じる</button>
+    <% end %>
+  </div>
+
+
+
+
+
+
+<%= link_to 'Back', posts_path %>

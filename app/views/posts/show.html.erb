@@ -1,10 +1,12 @@
+<%= flash[:notice] %>
+
 <div class="container post-show">
   <div class="row">
     <div class="col-md-6 clearfix">
       <div class="img-container-large">
         <%= image_tag @post&.image[:large].url %>
       </div>
-
+      <%= link_to "#{@post.contributer.name} :", @post.contributer %>
       <div class="post-content">
         <%= @post.content %>
       </div>
@@ -12,8 +14,15 @@
         <%= "#{time_ago_in_words(@post.created_at)}前" %>
       </div>
     </div>
-
-
+    <div class="col-md-6 clearfix post-show-right">
+      <div id="like_button">
+        <%= render 'partials/like_button' %>
+      </div>
+      <div id="post_comments">
+        <%= render 'posts/comments' %>
+      </div>
+      <button type="button" class="btn btn-default pull-right" data-dismiss="modal" style="width:82px;">閉じる</button>
+    </div>
   </div>
   <div class="container delete-post">
     <% if current_user==@post.contributer %>
