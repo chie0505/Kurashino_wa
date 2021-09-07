@@ -2,12 +2,14 @@
   <div class="row">
     <div class="col-md-6 clearfix">
       <div class="img-container-large">
-        <%= image_tag @post&.image[:large].url %>
-        
+
+         <%= attachment_image_tag @post, :post_image %>
+
+
       </div>
 
       <div class="post-content">
-        <%= @post.content %>
+
       </div>
       <div class="post-created-at pull-right">
         <%= "#{time_ago_in_words(@post.created_at)}前" %>

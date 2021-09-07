@@ -41,3 +41,20 @@
 </tbody>
 </table>
 
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 none">
+      user
+    </div>
+    <div class="user-contents col-md-8">
+      <h4 class="sub-title"><%= @page_title %></h4>
+      <ul class="user-posts">
+        <% @posts.each do |post| %>
+         <%= attachment_image_tag post, :post_image %>
+        <% end %>
+      </ul>
+
+    </div>
+  </div>
+</div>
