@@ -1,60 +1,50 @@
-<h3>Posts</h3>
-
-<table>
-<thead>
-<tr>
-<th>title</th>
-<th>body</th>
-<th></th>
-</tr>
-</thead>
-
-<tbody>
-<% @posts.each do |post| %>
-
-<tr>
-<td>
-<%= post.title %>
-</td>
-<td>
-<%= post.caption %>
-</td>
-<td>
-
-
-<%= attachment_image_tag post, :post_image %>
-
-
-<%= link_to "show", post_path(post.id) %>
 
 
 
-<% if current_user==post.contributer %>
+
+<div class="post-card">
+  <% @posts.each do |post| %>
+    <div class="card">
+      <div class="stream-item">
+        <div class="content">
+          <div class="stream-item-header">
+            <%= image_tag current_user.profile_photo, class: "avatar avatar-size48" %>
+            <div class="user-profile-link">
+              <%= link_to "@" + "#{post.user.name}", "#", class: "name" %>
+            </div>
+            <div class="time">
+              ・<%= time_ago_in_words(post.created_at) %>
+            </div>
+          </div>
+          <div class="post-text">
+            <%= safe_join(post.title.split("\n"), tag(:br)) %>
+            <%= link_to "show", post_path(post.id) %></br>
+            <%= safe_join(post.caption.split("\n"), tag(:br)) %>
+
+
+
+
+<div class="btn-group btn-group-sm">
+  <% if current_user==post.contributer %>
       <hr>
       <%= link_to '投稿を取り消す', post, method: :delete, data:{confirm: "本当に取り消しますか"}, class:"btn btn-danger btn-block" %>
 <% end %>
+</div>
 
 
-</td>
-</tr>
-<% end %>
-</tbody>
-</table>
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-md-4 none">
-      user
+</br>
+<%= attachment_image_tag post, :post_image %>
+
+
+
+
+
+
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="user-contents col-md-8">
-      <h4 class="sub-title"><%= @page_title %></h4>
-      <ul class="user-posts">
-        <% @posts.each do |post| %>
-         <%= attachment_image_tag post, :post_image %>
-        <% end %>
-      </ul>
-
-    </div>
-  </div>
+  <% end %>
 </div>

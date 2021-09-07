@@ -26,9 +26,22 @@
             <li class="nav-item">
               <%= link_to '通知', about_path, class: 'nav-link text-dark' %>
             </li>
+
+
             <li class="nav-item">
               <%= link_to 'マイページ', about_path, class: 'nav-link text-dark' %>
             </li>
+
+             <li class="nav-item">
+            <%= link_to "新規投稿", new_post_path, class: "btn btn-primary tweet-btn" %>
+             </li>
+
+            <li class="nav-item">
+            <%= link_to "#", class: "nav-link dropdown-toggle", role: "button", "data-toggle": :dropdown, "aria-haspopup": :true, "aria-expanded": false do %>
+              <%= image_tag current_user.profile_photo, class: "avatar avatar-size32" %>
+            <% end %>
+            </li>
+
             <% else %>
             <li class="nav-item">
               <%= link_to "about", about_path, class: 'nav-link text-dark' %>

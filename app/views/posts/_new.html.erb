@@ -1,18 +1,19 @@
-
-  <div class="container left-side-content mordal-window">
+<div class="container left-side-content mordal-window">
+<h1>新規投稿</h1>
     <%= form_with model: @post, local:true do |f| %>
-    
 
-     <%= f.text_field :title %>
+
+       <div class="post-body">
+        <%= image_tag current_user.profile_photo, class: "avatar avatar-size32" %>
+        <%= f.text_field :title,  class: 'form-control' ,placeholder: "タイトル", rows: "3" %>
+      </div>
+
+     <%= f.text_area :caption, class: 'form-control' , placeholder: "内容", rows: "3"%>
      <%= f.attachment_field :post_image%>
-     
 
-     <%= f.label :image_data %>
-      <br>
-      <%= f.label :caption %>
-      <%= f.text_area :caption, class: 'form-control' %>
+
       <%= f.submit "投稿する", class: "btn btn-primary btn-block"%>
-      <button type="button" class="btn btn-default pull-right" data-dismiss="modal">閉じる</button>
+
     <% end %>
   </div>
 

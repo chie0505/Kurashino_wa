@@ -63,10 +63,6 @@ before_action :authenticate_user!
       params.require(:post).permit(:title, :post_image, :caption, :user_id,)
     end
 
-
-
-
-
     def correct_user
 
       post=Post.find(params[:id])
