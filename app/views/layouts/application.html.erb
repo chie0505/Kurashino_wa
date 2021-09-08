@@ -18,7 +18,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav ml-auto">
+            <ul class="navbar-nav ml-md-auto align-items-center">
             <% if user_signed_in? %>
             <li class="nav-item">
               <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
@@ -36,11 +36,13 @@
             <%= link_to "新規投稿", new_post_path, class: "btn btn-primary tweet-btn" %>
              </li>
 
-            <li class="nav-item">
-            <%= link_to "#", class: "nav-link dropdown-toggle", role: "button", "data-toggle": :dropdown, "aria-haspopup": :true, "aria-expanded": false do %>
+            <%= link_to "", class: "nav-link commonNavIcon profile-icon",  role: "button", "aria-haspopup": :true, "aria-expanded": false do %>
               <%= image_tag current_user.profile_photo, class: "avatar avatar-size32" %>
             <% end %>
-            </li>
+
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
 
             <% else %>
             <li class="nav-item">

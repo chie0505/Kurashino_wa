@@ -9,6 +9,8 @@ class ApplicationController < ActionController::Base
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+
+    devise_parameter_sanitizer.permit(:account_update, keys: [:name, :self_introduction])
   end
 
 #   devise利用の機能（ユーザ登録、ログイン認証など）が使われる場合、その前にconfigure_permitted_parametersが実行されるよう設定
