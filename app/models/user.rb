@@ -8,7 +8,11 @@ class User < ApplicationRecord
 
   validates :self_introduction, length: { maximum: 300 }
 
-   def update_without_current_password(params, *options)
+
+  mount_uploader :profile_image, ProfileImageUploader
+
+
+  def update_without_current_password(params, *options)
 
     if params[:password].blank? && params[:password_confirmation].blank?
       params.delete(:password)
@@ -18,7 +22,7 @@ class User < ApplicationRecord
     result = update_attributes(params, *options)
     clean_up_passwords
     result
-   end
+  end
 
 
 end

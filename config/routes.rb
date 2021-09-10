@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
+
+root to: 'homes#top'
+get "about" => "homes#about" , as: "about"
    devise_for :users,
     controllers: { registrations: 'registrations' }
-   root to: 'homes#top'
-   get "about" => "homes#about" , as: "about"
+
+
 
 
 
@@ -20,3 +23,4 @@ Rails.application.routes.draw do
 
 
 end
+
