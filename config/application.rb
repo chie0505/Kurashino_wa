@@ -17,6 +17,6 @@ module KurashinoWa
     # the framework and any gems in your application.
   end
 
-config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
+# config.autoload_paths += Dir[Rails.root.join('app', 'uploaders')]
 
 end
