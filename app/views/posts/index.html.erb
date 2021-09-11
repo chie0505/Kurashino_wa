@@ -37,10 +37,12 @@
           <%= link_to user_path(post.user), class: "black-color no-text-decoration",
             title: post.user.name do %>
             　<strong><%= post.user.name %></strong>
+
           <% end %>
+          <strong>　　<%= post.title %></strong>
         </div>
 　　　　<div class="center">
-　　　　  <%= attachment_image_tag post, :post_image , size:'300x300'%>
+<%= attachment_image_tag post, :post_image , size:'300x300'%>
        　 </div>
 
         <div class="card-body">
