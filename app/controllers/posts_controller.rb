@@ -4,7 +4,7 @@ before_action :authenticate_user!
 
   def index
 
-    @posts = Post.all
+    @posts = Post.limit(10).order('created_at DESC')
     @post = Post.new
 
   end
