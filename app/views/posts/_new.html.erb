@@ -2,7 +2,7 @@
  <h1>新規投稿</h1>
   <%= form_with model: @post, local:true do |f| %>
   <div class="post-body">
-   <%= image_tag current_user.profile_photo, class: "avatar avatar-size32" %>
+
    <%= f.text_field :title,  class: 'form-control' ,placeholder: "タイトル", rows: "3" %>
 
   </div>
