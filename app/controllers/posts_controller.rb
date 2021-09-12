@@ -3,10 +3,8 @@ class PostsController < ApplicationController
 before_action :authenticate_user!
 
   def index
-
     @posts = Post.limit(10).order('created_at DESC')
     @post = Post.new
-
   end
 
 
@@ -64,6 +62,13 @@ before_action :authenticate_user!
     def post_params
       params.require(:post).permit(:title, :post_image, :caption, :user_id,)
     end
+
+
+
+  def user_params
+    params.require(:user).permit(:name, :self_introduction, :profile_image)
+  end
+
 
     def correct_user
 
