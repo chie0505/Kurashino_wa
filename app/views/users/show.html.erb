@@ -31,4 +31,60 @@
      </div>
     </div>
   <% end %>
-</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="follower">
+      <%= link_to followers_user_path(current_user) do %>
+
+          <h5 style="color: black;">フォロワー<%= @user.followers.count %>人</h5>
+      <% end %>
+  </div>
+  <div class="follow">
+      <%= link_to following_user_path(current_user) do %>
+                <h5 style="color: black;">フォロー<%= @user.following.count %>人</h5>
+      <% end %>
+  </div>
+  <div>
+
+
+<!-- フォローボタン(ユーザーがcurrent_userでなければ表示--->
+  <% if user_signed_in? && @user != current_user %>
+  <div id="follow_form">
+    <% if current_user.following?(@user) %>
+<!-- フォロー解除ボタン ---------------------->
+<%= form_for(current_user, url: relationship_path(@user), method: :delete, remote: true) do |f| %>
+  <%= f.submit "フォロー解除", class: "btn btn-outline-secondary" %>
+<% end %>
+
+
+
+    <% else %>
+<!-- フォローボタン --------------------------->
+<%= form_for(current_user, url: relationships_path, method: :post, remote: true) do |f| %>
+  <%= hidden_field_tag :following_id, @user.id %>
+  <%= f.submit "フォローする", class: "btn btn-outline-secondary" %>
+<% end %>
+
+
+
+
+
+    <% end %>
+  </div>
+<% end %>
+
+
+
+
+  </div>
+  </div>

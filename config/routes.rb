@@ -6,23 +6,25 @@ get "about" => "homes#about" , as: "about"
    devise_for :users,
     controllers: { registrations: 'registrations' }
 
-
-
+get :signup, to: 'users#new'
 
 
   resources :users do
-    member do
-      get :following, :followers, :like_posts, :posts
+      member do
+          get :following, :followers
+      end
     end
-    get :search, on: :collection
-  end
-  get :signup, to: 'users#new'
+  resources :relationships, only: [:create, :destroy]
 
-
-   resources :posts, only: [:index,:show,:new,:create,:destroy] do
+    resources :posts, only: [:index,:show,:new,:create,:destroy] do
     resources :likes, only: [:create, :destroy]
     resources :comments, only: [:create, :destroy]
    end
+
+
+
+
+
 
 end
 
