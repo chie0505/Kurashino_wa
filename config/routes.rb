@@ -9,11 +9,7 @@ get "about" => "homes#about" , as: "about"
 get :signup, to: 'users#new'
 
 
-  resources :users do
-      member do
-          get :following, :followers
-      end
-    end
+  resources :users
   resources :relationships, only: [:create, :destroy]
 
     resources :posts, only: [:index,:show,:new,:create,:destroy] do
