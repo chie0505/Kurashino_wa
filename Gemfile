@@ -70,3 +70,4 @@ gem "refile-mini_magick"
 gem 'kaminari'
 gem 'shrine'
 gem 'carrierwave', '~> 2.0'
+gem 'rails-ujs'

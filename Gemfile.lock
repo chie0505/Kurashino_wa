@@ -194,6 +194,8 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.4.2)
       loofah (~> 2.3)
+    rails-ujs (0.1.0)
+      railties (>= 3.1)
     railties (5.2.6)
       actionpack (= 5.2.6)
       activesupport (= 5.2.6)
@@ -309,6 +311,7 @@ DEPENDENCIES
   mini_magick
   puma (~> 3.11)
   rails (~> 5.2.5)
+  rails-ujs
   refile!
   refile-mini_magick
   sass-rails (~> 5.0)
