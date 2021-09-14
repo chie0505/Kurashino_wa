@@ -1,9 +1,2 @@
-$("#like-icon-post-<%= @post.id.to_s %>").
-  html("<%= link_to "いいねを取り消す", post_like_path(@post.id, @like), method: :DELETE, remote: true, class: "unlike-btn hide-text" %>");
-  html("<i class="far fa-heart"></i>");
-$("#like-text-post-<%= @post.id.to_s %>").
-  html("<%= j render "posts/like_text", { likes: @post.likes } %>");
-
-
-
-
+$("#like-icon-post-<%= @post.id.to_s %>").html("<%= j render "posts/like_icon", { post: @post } %>");
+$("#like-text-post-<%= @post.id.to_s %>").html("<%= j render "posts/like_text", { likes: @post.likes } %>");
