@@ -17,7 +17,7 @@ get :signup, to: 'users#new'
     resources :comments, only: [:create, :destroy]
    end
 
-
+  resources :notifications, only: :index
 
 
 
