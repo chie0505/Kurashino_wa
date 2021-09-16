@@ -8,6 +8,12 @@ before_action :authenticate_user!
   end
 
 
+  def search
+  @posts = Post.search(params[:keyword])
+  @keyword = params[:keyword]
+  render "index"
+  end
+
   def new
      @post = Post.new
   end

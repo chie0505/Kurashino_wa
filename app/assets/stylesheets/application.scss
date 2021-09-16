@@ -80,6 +80,25 @@ div.center {
     text-align: center;
 }
 
+
+#form4{
+position:relative;
+max-width:300px;
+margin-bottom:20px;
+}
+
+#sbtn4{
+height:30px;
+width:40px;
+position:absolute;
+background:#fff;
+color:#7fbfff;
+border:none;
+border-radius:0 25px 25px 0;
+}
+
+
+
 @import "users/show";
 @import "users/edit";
 

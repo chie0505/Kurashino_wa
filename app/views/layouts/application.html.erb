@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-
-
-
-
+<script src="https://kit.fontawesome.com/fcd80f662a.js" crossorigin="anonymous"></script>
 <html>
   <head>
     <title>Kurashino_wa</title>
@@ -25,26 +22,25 @@
           <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ml-md-auto align-items-center">
             <% if user_signed_in? %>
-            <li class="nav-item">
-              <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'お気に入り', about_path, class: 'nav-link text-dark' %>
-            </li>
 
 
             <li class="nav-item">
               <%= link_to 'マイページ', about_path, class: 'nav-link text-dark' %>
             </li>
+            <li class="nav-item">
+              <%= link_to "新規投稿", new_post_path, class: "btn btn-primary tweet-btn" %>
+            </li>
 
-             <li class="nav-item">
-            <%= link_to "新規投稿", new_post_path, class: "btn btn-primary tweet-btn" %>
-             </li>
+            <li class="nav-item">
+              <div class="form-group">
+             <%= form_with url: search_path, method: :get, local: true do |f| %>
+            <%= f.text_field :keyword, value: @keyword, class: 'form-control' ,placeholder: "記事を検索", rows: "2" %>
+             <button id="sbtn4" type="submit"><i class="fas fa-search"></i></button>
+             <% end %>
+　　　　　　　　　　　</div>
 
-            <%= link_to "", class: "nav-link commonNavIcon profile-icon",  role: "button", "aria-haspopup": :true, "aria-expanded": false do %>
+            </li>
 
-              <%= image_tag current_user.profile_photo, class: "avatar avatar-size32" %>
-            <% end %>
 
 
 
