@@ -7,6 +7,8 @@ class Post < ApplicationRecord
  has_many :comments, dependent: :destroy
  has_many :notifications, dependent: :destroy
 
+ validates :title, length: {maximum: 8}
+
 
   def liked_by(user)
     Like.find_by(user_id: user.id, post_id: id)

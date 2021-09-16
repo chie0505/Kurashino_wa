@@ -1,68 +1,37 @@
-
 <script src="https://kit.fontawesome.com/fcd80f662a.js" crossorigin="anonymous"></script>
-
-<!--検索フォーム-->
-<div class="search-form">
-  <%= form_with url: search_path, method: :get, local: true do |f| %>
-    <%= f.text_field :keyword, value: @keyword %>
-
-
-    <button id="sbtn4" type="submit"><i class="fas fa-search"></i></button>
-  <% end %>
-</div>
-
-<div class="post-list">
-  <% @posts.each do |post| %>
-  <% end %>
-</div>
-
-
-
-
-
 <% @posts.each do |post| %>
   <div class="col-md-6 col-md-2 mx-auto">
     <div class="card-wrap">
       <div class="card">
         <div class="card-header align-items-center d-flex">
-
-
          <%= link_to user_path(post.user), class: "no-text-decoration" do %>
-          <% if post.user.profile_image.url.nil? %>
+         <% if post.user.profile_image.url.nil? %>
           <div class="default_profile_img"></div>
-          <% else %>
+           <% else %>
            <%= image_tag post.user.profile_image.url, class: "avatar avatar-size48" %>
            <% end %>
-         <% end %>
-
-
-
-          <%= link_to user_path(post.user), class: "black-color no-text-decoration",title: post.user.name do %>
-           <strong><%= post.user.name %></strong>
+           <% end %>
+           <%= link_to user_path(post.user), class: "black-color no-text-decoration",title: post.user.name do %>
+            <strong><%= post.user.name %></strong>
           <% end %>
-          <strong><%= post.title %></strong>
+          <%= link_to(post_path(post)) do %>
+            　　　　　　　　　　　　　　　　<strong><%= post.title %></strong>
+          <% end %>
         </div>
-　　　　<div class="center">
-         <%= attachment_image_tag post, :post_image , size:'300x300'%>
+        <div class="center"></br>
+        <%= link_to(post_path(post)) do %>
+          <%=attachment_image_tag post, :post_image , size:'300x300' %>
+        <% end %>
         </div>
-
         <div class="card-body">
           <div class="row parts">
-
-
             <%# ==========いいねここから========== %>
             <div id="like-icon-post-<%= post.id.to_s %>">
             <%= render "like_icon", { post: post } %>
             </div>
             <%# ==========いいねここまで========== %>
-
-
-
            <%= link_to "", "#", class: "comment" %>
           </div>
-
-
-
           <div id="like-text-post-<%= post.id.to_s %>">
             <%= render "like_text", { likes: post.likes } %>
           </div>
