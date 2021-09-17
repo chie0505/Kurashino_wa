@@ -58,6 +58,9 @@ before_action :authenticate_user!
     redirect_to posts_path
   end
 
+  def search
+    @posts = Post.search_caption_for(params[:q])
+  end
 
 
   private

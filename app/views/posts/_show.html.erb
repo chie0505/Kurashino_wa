@@ -16,6 +16,7 @@
          <strong>【<%= @post.title %>】</strong>
         </div>
         <div class="center">
+          </br>
          <%= attachment_image_tag @post, :post_image , size:'300x300'%>
         </div>
         <div class="card-body">
@@ -39,7 +40,7 @@
             <%= render "like_text", { likes: @post.likes } %>
           </div>
           <div>
-           <span><%= @post.caption %></span>
+           <%= html_with_link_to_hashtag(@post.caption) %>
            <div id="comment-post-<%= @post.id.to_s %>">
             <% @post.comments.each do |comment| %>
             <div class="mb-2">

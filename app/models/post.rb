@@ -7,7 +7,9 @@ class Post < ApplicationRecord
  has_many :comments, dependent: :destroy
  has_many :notifications, dependent: :destroy
 
- validates :title, length: {maximum: 8}
+ validates :title, length: {maximum: 15}
+ scope :search_caption_for, ->(query) { where('caption like ?', "%#{query}%") }
+
 
 
   def liked_by(user)
