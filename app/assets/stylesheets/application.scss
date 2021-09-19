@@ -102,6 +102,13 @@ border:none;
 border-radius:0 25px 25px 0;
 }
 
+.top{
+  display: flex;
+  align-items: center;
+  height:400px;
+  width:600px;
+  background:#F2EFE7;
+}
 
 
 @import "users/show";
