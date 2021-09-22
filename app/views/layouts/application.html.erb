@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <!-- koko demo OK !! -->
   </head>
 
   <body class="d-flex flex-column vh-100">
@@ -32,12 +33,17 @@
             <!--検索フォーム-->
             <li class="nav-item">
               <div class="input-group">
-             <%= form_with url: search_path, method: :get, local: true do |f| %>
-             <%= f.text_field :keyword, value: @keyword, class: 'form-control' ,placeholder: "記事を検索" %>
-              <span class="input-group-btn">
-                <button id="sbtn4" type="submit"><i class="fas fa-search"></i></button>
-              </span>
-             <% end %>
+             <%#= form_with url: search_path, method: :get, class: "search_container", local: true do |f| %>
+             <%#= f.text_field :keyword, value: @keyword, class: 'form-control' ,placeholder: "記事を検索" %>
+              <!--<span class="input-group-btn">-->
+              <!--  <button id="sbtn4" type="submit"><i class="fas fa-search"></i></button>-->
+              <!--</span>-->
+              <%#= f.button 'submit' %>
+             <%# end %>
+             <form method="get" action="<%= search_path %>" class="search_container">
+                <input type="text" name="keyword" size="25" placeholder="キーワード検索">
+                <input type="submit" value="&#xf002">
+              </form>
               </div>
             </li>
 
@@ -65,5 +71,6 @@
 
     <footer class="bg-dark text-white pt-5 pb-4">
     </footer>
+    <!-- koko ni script -->
   </body>
 </html>

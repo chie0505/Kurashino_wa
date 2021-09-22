@@ -3,20 +3,28 @@
   <div class="col-md-6 col-md-2 mx-auto">
     <div class="card-wrap">
       <div class="card">
-        <div class="card-header align-items-center d-flex">
+        <div class="card-header">
          <%= link_to user_path(post.user), class: "no-text-decoration" do %>
-         <% if post.user.profile_image.url.nil? %>
-          <div class="default_profile_img"></div>
-           <% else %>
-           <%= image_tag post.user.profile_image.url, class: "avatar avatar-size48" %>
-           <% end %>
-           <% end %>
-           <%= link_to user_path(post.user), class: "black-color no-text-decoration",title: post.user.name do %>
-            <strong><%= post.user.name %></strong>
-           <% end %>
-           <%= link_to(post_path(post)) do %>
-           <div class="right"><%= post.title %></div>
-           <% end %>
+             <% if post.user.profile_image.url.nil? %>
+                 <%= image_tag 'default_profile_img.png', class: "avatar avatar-size48" %>
+             <% else %>
+                 <%= image_tag post.user.profile_image.url, class: "avatar avatar-size48" %>
+             <% end %>
+         <% end %>
+
+           <div class="row">
+               <div class="col-md-6 test-left">
+                   <%= link_to user_path(post.user), class: "black-color no-text-decoration",title: post.user.name do %>
+                        <strong><%= post.user.name %></strong>
+                   <% end %>
+               </div>
+               <div class="col-md-6 text-right">
+                   <%= link_to(post_path(post)) do %>
+                        <%= post.title %>
+                   <% end %>
+               </div>
+           </div>
+           
         </div>
         <div class="center"></br>
          <%= link_to(post_path(post)) do %>

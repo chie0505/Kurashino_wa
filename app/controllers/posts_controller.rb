@@ -9,9 +9,9 @@ before_action :authenticate_user!
 
 
   def search
-  @posts = Post.search(params[:keyword])
-  @keyword = params[:keyword]
-  render "index"
+    @posts = Post.search(params[:keyword])
+    @keyword = params[:keyword]
+    render :index
   end
 
   def new
@@ -58,9 +58,9 @@ before_action :authenticate_user!
     redirect_to posts_path
   end
 
-  def search
-    @posts = Post.search_caption_for(params[:q])
-  end
+  # def search
+  #   @posts = Post.search_caption_for(params[:q])
+  # end
 
 
   private

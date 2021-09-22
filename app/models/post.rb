@@ -62,7 +62,7 @@ class Post < ApplicationRecord
 
 
 def self.search(keyword)
-  where(["title like? OR caption like?", "%#{keyword}%", "%#{keyword}%"])
+  where("title LIKE ? OR caption LIKE ?", "%#{keyword}%", "%#{keyword}%")
 end
 
 
