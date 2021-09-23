@@ -43,10 +43,6 @@ before_action :authenticate_user!
 
  def show
     @post=Post.find(params[:id])
-    respond_to do |format|
-      format.html { render 'posts/_show' }
-      format.js
-    end
  end
 
 

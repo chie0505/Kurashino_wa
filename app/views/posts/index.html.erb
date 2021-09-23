@@ -4,6 +4,8 @@
     <div class="card-wrap">
       <div class="card">
         <div class="card-header">
+            <div class="row">
+               <div class="col-md-6">
          <%= link_to user_path(post.user), class: "no-text-decoration" do %>
              <% if post.user.profile_image.url.nil? %>
                  <%= image_tag 'default_profile_img.png', class: "avatar avatar-size48" %>
@@ -11,16 +13,14 @@
                  <%= image_tag post.user.profile_image.url, class: "avatar avatar-size48" %>
              <% end %>
          <% end %>
-
-           <div class="row">
-               <div class="col-md-6 test-left">
-                   <%= link_to user_path(post.user), class: "black-color no-text-decoration",title: post.user.name do %>
-                        <strong><%= post.user.name %></strong>
+             <%= link_to user_path(post.user), class: "black-color no-text-decoration",title: post.user.name do %>
+              <strong><%= post.user.name %></strong>
                    <% end %>
                </div>
+               
                <div class="col-md-6 text-right">
                    <%= link_to(post_path(post)) do %>
-                        <%= post.title %>
+                        <strong><%= post.title %></strong>
                    <% end %>
                </div>
            </div>
