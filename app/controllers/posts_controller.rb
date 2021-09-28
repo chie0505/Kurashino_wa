@@ -7,17 +7,15 @@ before_action :authenticate_user!
     @post = Post.new
   end
 
-
   def search
     @posts = Post.search(params[:keyword])
     @keyword = params[:keyword]
-    render :index
+    # render :index
   end
 
   def new
      @post = Post.new
   end
-
 
   def create
     @post=current_user.posts.build(post_params)
@@ -38,9 +36,6 @@ before_action :authenticate_user!
     end
   end
 
-
-
-
  def show
     @post=Post.find(params[:id])
  end
@@ -53,10 +48,7 @@ before_action :authenticate_user!
     flash[:info]="投稿を取り消しました"
     redirect_to posts_path
   end
-
-  # def search
-  #   @posts = Post.search_caption_for(params[:q])
-  # end
+  
 
 
   private

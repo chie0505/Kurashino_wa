@@ -16,13 +16,15 @@
              <%= link_to user_path(post.user), class: "black-color no-text-decoration",title: post.user.name do %>
               <strong><%= post.user.name %></strong>
                    <% end %>
-               </div>
+              </div>
                
                <div class="col-md-6 text-right">
                    <%= link_to(post_path(post)) do %>
                         <strong><%= post.title %></strong>
                    <% end %>
                </div>
+               
+               
            </div>
            
         </div>

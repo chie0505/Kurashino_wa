@@ -137,6 +137,7 @@ border-radius:0 25px 25px 0;
   width: 260px;
   overflow: hidden;
 }
+
 .search_container input[type="text"]{
   border: none;
   height: 2.0em;
@@ -161,4 +162,8 @@ border-radius:0 25px 25px 0;
 
 input:-webkit-autofill {
   box-shadow: 0 0 0 1000px white inset;
+}
+
+body {
+  background-color: #FFFFE0;
 }
