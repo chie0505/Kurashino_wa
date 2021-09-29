@@ -27,6 +27,20 @@
             <li class="nav-item">
               <%= link_to 'マイページ', user_path(current_user.id), class: 'nav-link text-dark' %>
             </li>
+            
+            <li class="nav-item">
+             <a class="fas fa-crown fa-2x" href="/ranks">
+             </a>
+            </li>
+            
+            <li class="nav-item">
+            <a class="far fa-bell fa-2x" href="/notifications"></a>
+            </li>
+            
+            <a class="far fa-edit fa-2x" href="/posts/new"></a>
+            
+            
+            
             <li class="nav-item">
               <%= link_to "新規投稿", new_post_path, class: "btn btn-primary tweet-btn" %>
             </li>

@@ -6,6 +6,7 @@
         <div class="card-header">
             <div class="row">
                <div class="col-md-6">
+                   第<%= i %>位
          <%= link_to user_path(post.user), class: "no-text-decoration" do %>
              <% if post.user.profile_image.url.nil? %>
                  <%= image_tag 'default_profile_img.png', class: "avatar avatar-size48" %>
